@@ -13,7 +13,7 @@ namespace VoiceOfTheCity.Data{
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Report>()
-            .HasOne<User>()
+            .HasOne(r => r.Reporter)
             .WithMany(u => u.Reports)
             .HasForeignKey(r => r.ReporterId);
         }

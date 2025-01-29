@@ -30,8 +30,10 @@ namespace VoiceOfTheCity.Models {
         public string? Address {get; set;}
 
         [Required]
-        [ForeignKey("User")]
         public int ReporterId {get; set;}
+
+        [ForeignKey("ReporterId")]
+        public User Reporter {get; set;}
 
         public string Status {get; set;} ="Pending";
 
