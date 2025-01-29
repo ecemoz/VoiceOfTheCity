@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BCrypt.Net;
 
 namespace VoiceOfTheCity.Models {
 
@@ -32,5 +33,13 @@ namespace VoiceOfTheCity.Models {
         public DateTime CreatedAt {get; set;} = DateTime.Now;
         public DateTime UpdatedAt {get; set;} = DateTime.Now;
         public ICollection<Report> Reports {get; set;}
+
+        public void SetPassword(string password) {
+            PasswordHash =BCrypt.Net.BCrypt.HashPassword(password);
+        }
+
+        public bool VerifyPassword(string password) {
+            return BCrypt.Net.BCrypt.Verify(password,PasswordHash);
+        }
     }
 }
