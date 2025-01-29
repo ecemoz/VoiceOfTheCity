@@ -18,4 +18,4 @@ namespace VoiceOfTheCity.Data{
             .HasForeignKey(r => r.ReporterId);
         }
     }
-    }
+}

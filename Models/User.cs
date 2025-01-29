@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using BCrypt.Net;
+using VoiceOfTheCity.Enums;
 
 namespace VoiceOfTheCity.Models {
 
@@ -24,7 +25,10 @@ namespace VoiceOfTheCity.Models {
         public string PasswordHash {get; set;}
         
         [Required]
-        public string Role {get; set;} = "User";
+        public UserRole Role {get; set;} = UserRole.User;
+
+        [MaxLength(255)]
+        public string? ProfileImagePath {get; set;}
         
         [MaxLength(100)]
         public string? Location {get; set;}
