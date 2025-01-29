@@ -9,5 +9,13 @@ namespace VoiceOfTheCity.Data{
 
         public DbSet<User> Users {get; set;}
         public DbSet<Report> Reports {get; set;}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Report>()
+            .HasOne<User>()
+            .WithMany(u => u.Reports)
+            .HasForeignKey(r => r.ReporterId);
         }
+    }
     }
