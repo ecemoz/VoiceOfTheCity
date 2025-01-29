@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using VoiceOfTheCity.Enums;
 
 namespace VoiceOfTheCity.Models {
     
@@ -35,7 +36,8 @@ namespace VoiceOfTheCity.Models {
         [ForeignKey("ReporterId")]
         public User Reporter {get; set;}
 
-        public string Status {get; set;} ="Pending";
+        [Required]
+        public ReportStatus Status {get; set;} = ReportStatus.Pending;
 
         public DateTime ReportCreatedAt {get; set;} = DateTime.Now;
 
