@@ -6,6 +6,6 @@ namespace VoiceOfTheCity.DTOs {
         public string Email {get; set;}
         public string PasswordHash;
         public string UserRole {get; set;}
-        public string? Location{get; set;}
+        public string? UserLocation{get; set;}
     }
 }

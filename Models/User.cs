@@ -31,11 +31,11 @@ namespace VoiceOfTheCity.Models {
         public string? ProfileImagePath {get; set;}
         
         [MaxLength(100)]
-        public string? Location {get; set;}
+        public string? UserLocation {get; set;}
         public int ReportedIssuesCount {get; set;} = 0;
-        public bool isVerified {get; set;} = false;
-        public DateTime CreatedAt {get; set;} = DateTime.Now;
-        public DateTime UpdatedAt {get; set;} = DateTime.Now;
+        public bool IsVerified {get; set;} = false;
+        public DateTime UserCreatedAt {get; set;} = DateTime.Now;
+        public DateTime UserUpdatedAt {get; set;} = DateTime.Now;
         public ICollection<Report> Reports {get; set;}
 
         public void SetPassword(string password) {
