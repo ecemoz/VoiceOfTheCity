@@ -3,7 +3,7 @@ using VoiceOfTheCity.Enums;
 
 namespace VoiceOfTheCity.DTOs {
 
-    public class UpdateReportDTO {
+    public class UpdateReportDto {
 
     [MaxLength(255)]
     public string? Title {get; set;}
