@@ -1,5 +1,4 @@
 using AutoMapper;
-using Microsoft.CodeAnalysis.Options;
 using VoiceOfTheCity.DTOs;
 using VoiceOfTheCity.Models;
 
@@ -14,7 +13,10 @@ namespace VoiceOfTheCity.Mappers {
             CreateMap<RegisterUserDto,User>();
 
             CreateMap<UserUpdateDto,User>()
-            .ForAllProperty(opts => opts.Condition((src, dest, srcMember) => srcMember !=null));
+            .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember !=null));
+
+            CreateMap<UploadImageDto, User>()
+            .ForMember(dest=> dest.ProfileImagePath, opt => opt.Ignore());
         }
     }
 }
