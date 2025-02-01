@@ -26,8 +26,9 @@ namespace VoiceOfTheCity.Models {
 
         [Required]
         public double Longitude {get; set;}
-
-        public string? Address {get; set;}
+        
+        [Required]
+        public string Address {get; set;}
 
         [Required]
         public int ReporterId {get; set;}
