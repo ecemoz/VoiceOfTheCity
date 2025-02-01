@@ -1,13 +1,8 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using VoiceOfTheCity.Enums;
 
-namespace VoiceOfTheCity.Models {
-    
-    public class Report
-    {
-        [Key]
-        public int Id{get; set;}
+namespace VoiceOfTheCity.DTOs {
+
+    public class CreateReportDto {
 
         [Required]
         [MaxLength(255)]
@@ -31,15 +26,5 @@ namespace VoiceOfTheCity.Models {
 
         [Required]
         public int ReporterId {get; set;}
-
-        [ForeignKey("ReporterId")]
-        public User Reporter {get; set;}
-
-        [Required]
-        public ReportStatus Status {get; set;} = ReportStatus.Pending;
-
-        public DateTime ReportCreatedAt {get; set;} = DateTime.Now;
-
-        public DateTime ReportUpdatedAt {get ; set;} =  DateTime.Now;
     }
 }
